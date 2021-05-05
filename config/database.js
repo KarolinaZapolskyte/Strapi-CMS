@@ -1,15 +1,20 @@
+const DATABASE_URI = 'mongodb+srv://dbUserTest:<dbUserPassword>@clustercms.5huzy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const DATABASE_NAME = 'VuejsNews'
 module.exports = ({ env }) => ({
   defaultConnection: 'default',
   connections: {
     default: {
-      connector: 'bookshelf',
+      connector: 'mongoose',
       settings: {
-        client: 'sqlite',
-        filename: env('DATABASE_FILENAME', '.tmp/data.db'),
+        uri: env(DATABASE_URI),
+        srv: env.bool('DATABASE_SRV', true),
+        port: env.int('DATABASE_PORT', 27017),
+        database: env(DATABASE_NAME),
       },
       options: {
-        useNullAsDefault: true,
+        authenticationDatabase: env('AUTHENTICATION_DATABASE', null),
+        ssl: env.bool('DATABASE_SSL', true),
       },
     },
   },
-});
+})
