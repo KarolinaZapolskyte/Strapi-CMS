@@ -1,5 +1,5 @@
 const DATABASE_URI = 'mongodb+srv://dbUserTest:<dbUserPassword>@clustercms.5huzy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-const DATABASE_NAME = 'VuejsNews'
+const DATABASE_NAME = 'myFirstDatabase'
 module.exports = ({ env }) => ({
   defaultConnection: 'default',
   connections: {
