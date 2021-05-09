@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "name": "Page",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Sections": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.news"
+      ]
+    },
+    "Subheading": {
+      "type": "richtext"
+    }
+  }
+}

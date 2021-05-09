@@ -9,8 +9,8 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
+    "axios": "^0.21.1",
     "strapi": "3.6.1",
     "strapi-admin": "3.6.1",
     "strapi-connector-mongoose": "3.6.1",
