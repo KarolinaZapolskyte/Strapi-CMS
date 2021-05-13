@@ -23,6 +23,9 @@
     },
     "Subheading": {
       "type": "richtext"
+    },
+    "url": {
+      "type": "string"
     }
   }
 }
