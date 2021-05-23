@@ -9,6 +9,12 @@
         <img src="../assets/logo2.png" alt="Logo" class="logo">
       </a>
       <ul class="right hide-on-med-and-down link">
+          <li>
+            <router-link
+              :to="{ path: '/' }"
+            >Home
+            </router-link>
+            </li>
         <li v-for="category in categories" v-bind:key="category.id">
             <router-link
               :to="{ path: '/category/' + category.id }"
