@@ -75,7 +75,7 @@ console.log(this.api_url);
   },
   computed: {
     leftArticlesCount() {
-      return Math.ceil(this.articles.length / 5);
+      return Math.ceil(this.articles.length / 2);
     },
     leftArticles() {
       return this.articles.slice(0, this.leftArticlesCount);

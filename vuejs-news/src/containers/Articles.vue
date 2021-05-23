@@ -1,8 +1,12 @@
 <template>
-  <div>
+  <div v-if="error">
+      {{ error }}
+    </div>
+    <div v-else>
     <div class="uk-section">
       <div class="uk-container uk-container-large">
-        <h1>Strapi blog</h1>
+        <h1>Vuejs news with Strapi CMS</h1>
+        <p>{{ pages[2].Subheading }}</p>
 
         <ArticlesList :articles="articles"></ArticlesList>
       </div>
@@ -20,16 +24,21 @@ export default {
   },
   data() {
     return {
-      articles: []
+      articles: [],
+      pages: [],
+      error: null
     };
   },
   async mounted() {
       try {
         const response = await axios.get('http://localhost:1337/articles')
+        const response2 = await axios.get('http://localhost:1337/pages')
         this.articles = response.data
+        this.pages = response2.data
       } catch (error) {
         this.error = error;
       }
+      console.log(this.pages);
     }
 };
 </script>
