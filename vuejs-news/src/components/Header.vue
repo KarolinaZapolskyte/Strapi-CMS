@@ -8,10 +8,24 @@
       <a href="/" class="brand-logo">
         <img src="../assets/logo2.png" alt="Logo" class="logo">
       </a>
-      <ul v-for="page in pages" :key="page.id"  class="right hide-on-med-and-down link">
-        <li>
+      <ul class="right hide-on-med-and-down link">
+        <li v-for="category in categories" v-bind:key="category.id">
+            <router-link
+              :to="{ path: '/category/' + category.id }"
+              :key="category.id"
+            >
+              {{ category.Name }}
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              :to="{ path: '/pages/about-us' }"
+            >About us
+            </router-link>
+            </li>
+        <!-- <li>
         <router-link :to="'/pages/' + page.id">{{ page.Heading }}</router-link>
-        </li>
+        </li> -->
       </ul>
     </div>
     </nav>
@@ -25,15 +39,14 @@ import axios from 'axios';
   data () {
       return {
         pages: [],
+        categories: [],
         error: null
       }
     },
-
   async mounted() {
       try {
-        const response = await axios.get('http://localhost:1337/pages')
-        this.pages = response.data
-        console.log(response.data)
+        const response = await axios.get('http://localhost:1337/categories')
+        this.categories = response.data
       } catch (error) {
         this.error = error;
       }
@@ -50,4 +63,13 @@ import axios from 'axios';
 /* .link:last-child {
     order: -1;
 } */
+
+
+.mint-green {
+  background: #41B883 !important
+}
+
+.blue {
+  background: #34495E !important
+}
 </style>

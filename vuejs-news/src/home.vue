@@ -36,12 +36,5 @@ import axios from 'axios';
 </script>
 
 <style>
-.mint-green {
-  background: #41B883 !important
-}
-
-.blue {
-  background: #34495E !important
-}
 
 </style>
